@@ -1,0 +1,28 @@
+
+npm init -y
+npm i -D typescript
+npx tsc --init
+npm i tsup -D
+npm run build
+npm run dev
+
+// Na pasta react
+npm init -y
+npm i typescript -D
+npm i tsup -D
+npm run build
+npm i @radix-ui/react-avatar
+npm i phosphor-react
+npm i @radix-ui/react-checkbox
+
+// Na pasta Design System
+npm init -y
+npm i
+npm i turbo@latest -D
+
+// Na pasta docs
+npx storybook@latest init --builder vite  --type react
+npm i vite @vitejs/plugin-react -D
+npm i react react-dom
+npm i @storybook/addon-a11y
+npm i @storybook/storybook-deployer --save-dev
