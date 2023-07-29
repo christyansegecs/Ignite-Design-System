@@ -26,3 +26,7 @@ npm i vite @vitejs/plugin-react -D
 npm i react react-dom
 npm i @storybook/addon-a11y
 npm i @storybook/storybook-deployer --save-dev
+
+https://github.com/ORG-NAME/REPO-NAME/settings/actions
+
+- Em Workflow Permissions: Set Read and write permissons
