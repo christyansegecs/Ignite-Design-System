@@ -25,24 +25,12 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  async viteFinal(config, { configType }) {
-    if (configType === 'DEVELOPMENT') {
-      // Your development configuration goes here
-    }
-    if (configType === 'PRODUCTION') {
-      viteFinal: (config, { configType }) => {
-        if (configType === 'PRODUCTION') {
-          config.base = '/05-design-system/'
-        }
-    
-        return config
-    }
-    return mergeConfig(config, {
-      // Your environment configuration here
-    });
-  },
   docs: {
     autodocs: "tag",
-  }
+  },
+  viteFinal: (config, { configType }) => {
+
+    config.base = '/Ignite-Design-System/'
+  },
 };
 export default config;
