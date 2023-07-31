@@ -25,8 +25,10 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  core: {
-    builder: '@storybook/builder-vite', // 👈 The builder enabled here.
+  async viteFinal(config, { configType }) {
+    if (configType === 'PRODUCTION') {
+      config.base = '/Ignite-Design-System/'
+    }
   },
   docs: {
     autodocs: "tag",
