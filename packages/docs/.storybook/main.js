@@ -25,10 +25,6 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  viteFinal: (config, { configType }) => {
-  
-      config.base = '/Ignite-Design-System/'
-  },
   docs: {
     autodocs: "tag",
   }
