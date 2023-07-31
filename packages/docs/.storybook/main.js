@@ -25,7 +25,7 @@ const config = {
     name: getAbsolutePath("@storybook/react-vite"),
     options: {},
   },
-  async viteFinal(config, { configType }) {
+  viteFinal: (config, { configType }) => {
     if (configType === 'PRODUCTION') {
       config.base = '/Ignite-Design-System/'
     }
