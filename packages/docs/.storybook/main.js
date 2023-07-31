@@ -26,9 +26,8 @@ const config = {
     options: {},
   },
   viteFinal: (config, { configType }) => {
-    if (configType === 'PRODUCTION') {
+  
       config.base = '/Ignite-Design-System/'
-    }
   },
   docs: {
     autodocs: "tag",
