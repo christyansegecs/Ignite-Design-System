@@ -1,46 +1,26 @@
-import { join, dirname } from "path";
-
-/**
- * This function is used to resolve the absolute path of a package.
- * It is needed in projects that use Yarn PnP or are set up within a monorepo.
- */
-function getAbsolutePath(value) {
-  return dirname(require.resolve(join(value, "package.json")));
-}
-
-/** @type { import('@storybook/react-vite').StorybookConfig } */
-const config = {
-  stories: [
+module.exports = {
+  "stories": [
     "../src/pages/**/*.stories.mdx",
     "../src/stories/**/*.stories.tsx"
   ],
-  addons: [
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-onboarding"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-a11y"),
+  "addons": [
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-a11y",
   ],
-  framework: {
-    name: getAbsolutePath("@storybook/react-vite"),
-    options: {},
+  "framework": "@storybook/react",
+  "core": {
+    "builder": "@storybook/builder-vite"
   },
-  docs: {
-    autodocs: "tag",
+  "features": {
+    "storyStoreV7": true
   },
-};
-
-// Check if the current environment is 'production' (i.e., building for GitHub Pages)
-if (process.env.NODE_ENV === 'production') {
-  config.framework.options = {
-    ...config.framework.options,
-    viteFinal: (config, { configType }) => {
-      if (configType === 'PRODUCTION') {
-        config.base = '/Ignite-Design-System/';
-      }
-      return config;
+  "viteFinal": (config, {configType}) => {
+    if (configType === 'PRODUCTION') {
+      config.base = '/Ignite-Design-System'
     }
-  };
-}
 
-export default config;
+    return config;
+  }
+}
