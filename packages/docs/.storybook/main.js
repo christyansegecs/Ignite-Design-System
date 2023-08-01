@@ -1,4 +1,3 @@
-
 import { join, dirname } from "path";
 
 /**
@@ -29,6 +28,19 @@ const config = {
   docs: {
     autodocs: "tag",
   },
-  
 };
+
+// Check if the current environment is 'production' (i.e., building for GitHub Pages)
+if (process.env.NODE_ENV === 'production') {
+  config.framework.options = {
+    ...config.framework.options,
+    viteFinal: (config, { configType }) => {
+      if (configType === 'PRODUCTION') {
+        config.base = '/05-design-system/';
+      }
+      return config;
+    }
+  };
+}
+
 export default config;
