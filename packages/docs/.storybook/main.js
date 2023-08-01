@@ -36,7 +36,7 @@ if (process.env.NODE_ENV === 'production') {
     ...config.framework.options,
     viteFinal: (config, { configType }) => {
       if (configType === 'PRODUCTION') {
-        config.base = '/05-design-system/';
+        config.base = '/Ignite-Design-System/';
       }
       return config;
     }
